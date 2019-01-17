@@ -1,0 +1,26 @@
+[11/15/18, 02:23:06:295] info: ╔════════════════════════════════════════════════════════════════════════════════════╗
+[11/15/18, 02:23:06:296] info: ║      Slack 3.3.3, linux 4.18.16-arch1-1-ARCH on x64 at 11/15/18, 02:23:06:293      ║
+[11/15/18, 02:23:06:296] info: ╚════════════════════════════════════════════════════════════════════════════════════╝
+[11/15/18, 02:23:06:378] info: Initializing local storage instance at path: /home/yonathan/.config/Slack/local-settings.json
+[11/15/18, 02:23:06:737] info: Store: BACKGROUND_CLIENTS_INITIALIZED
+[11/15/18, 02:23:06:743] info: Store: BACKGROUND_CLIENTS_INITIALIZED true
+[11/15/18, 02:23:07:257] info: Store: SET_NETWORK_STATUS online
+[11/15/18, 02:23:07:261] info: Store: MAIN_WINDOW_SHOWN
+[11/15/18, 02:23:07:290] info: Store: ADD_WINDOW
+{
+  "id": 3,
+  "type": "sign-in"
+}
+[11/19/18, 19:47:19:060] info: ╔════════════════════════════════════════════════════════════════════════════════════╗
+[11/19/18, 19:47:19:061] info: ║      Slack 3.3.3, linux 4.18.16-arch1-1-ARCH on x64 at 11/19/18, 19:47:19:058      ║
+[11/19/18, 19:47:19:061] info: ╚════════════════════════════════════════════════════════════════════════════════════╝
+[11/19/18, 19:47:19:132] info: Initializing local storage instance at path: /home/yonathan/.config/Slack/local-settings.json
+[11/19/18, 19:47:19:479] info: Store: BACKGROUND_CLIENTS_INITIALIZED
+[11/19/18, 19:47:19:487] info: Store: BACKGROUND_CLIENTS_INITIALIZED true
+[11/19/18, 19:47:20:117] info: Store: SET_NETWORK_STATUS online
+[11/19/18, 19:47:20:118] info: Store: MAIN_WINDOW_SHOWN
+[11/19/18, 19:47:20:134] info: Store: ADD_WINDOW
+{
+  "id": 3,
+  "type": "sign-in"
+}

@@ -1,0 +1,388 @@
+[11/15/18, 02:23:05:004] info: ╔════════════════════════════════════════════════════════════════════════════════════╗
+[11/15/18, 02:23:05:004] info: ║      Slack 3.3.3, linux 4.18.16-arch1-1-ARCH on x64 at 11/15/18, 02:23:05:002      ║
+[11/15/18, 02:23:05:004] info: ╚════════════════════════════════════════════════════════════════════════════════════╝
+[11/15/18, 02:23:05:301] info: Initializing local storage instance at path: /home/yonathan/.config/Slack/local-settings.json
+[11/15/18, 02:23:05:377] error: Locale: Tried to access systemLocale before application was ready
+[11/15/18, 02:23:05:638] info: TraceRecorder: setting up trace recorder, trace will be stored under /home/yonathan/.config/Slack/logs/recorded-trace
+[11/15/18, 02:23:05:644] info: Configuring uncaughtExceptionHandler
+[11/15/18, 02:23:05:644] info: Configuring unhandledRejectionHandler
+[11/15/18, 02:23:05:644] info: Registered with apiKey acaff8df67924f677747922423057034
+[11/15/18, 02:23:05:729] error: TransformPasswords: Cannot access keychain
+{
+  "error": {
+    "message": "The name org.freedesktop.secrets was not provided by any .service files",
+    "stack": "Error: The name org.freedesktop.secrets was not provided by any .service files"
+  }
+}
+[11/15/18, 02:23:05:731] warn: BrowserStore: Couldn't access keychain, make note of it
+[11/15/18, 02:23:05:743] info: Store: persist/REHYDRATE
+[11/15/18, 02:23:05:758] info: Store: UPDATE_SETTINGS
+{
+  "isSignedIntoSlackOrg": false
+}
+[11/15/18, 02:23:05:759] info: UpdaterEpics: Updates disabled because
+{
+  "reasons": [
+    "using Linux"
+  ]
+}
+[11/15/18, 02:23:05:761] info: Created uuid '5adfba6d-e0f8-5b9a-9fc7-98ba9d2f77fa'
+[11/15/18, 02:23:05:897] info: Tray Handler: Showing a tray balloon with title: Welcome to Slack!
+[11/15/18, 02:23:05:901] info: Store: INITIALIZE_SETTINGS
+{
+  "releaseChannel": "prod",
+  "platformVersion": {
+    "major": 4,
+    "minor": 18,
+    "build": 16
+  },
+  "isTitleBarHidden": false,
+  "isDevMode": false,
+  "appVersion": "3.3.3",
+  "versionName": "Dirty Computer",
+  "devEnv": null,
+  "resourcePath": "/usr/lib/slack/resources/app.asar",
+  "webappSrcPath": null,
+  "webappParams": null,
+  "launchOnStartup": false,
+  "openDevToolsOnStart": false,
+  "logFile": null,
+  "pretendNotReallyWindows10": false,
+  "isAeroGlassEnabled": false,
+  "isGpuCompositionAvailable": true,
+  "linux": {
+    "os": "Raspbian",
+    "release": ""
+  }
+}
+[11/15/18, 02:23:05:902] info: AutoLoginEpic: Checking for autologin.
+[11/15/18, 02:23:05:904] info: Store: UPDATE_SETTINGS
+{
+  "hasRunApp": true
+}
+[11/15/18, 02:23:05:906] info: WebContentsMediator: Attaching to new webContents
+[11/15/18, 02:23:05:909] info: Store: ADD_WINDOW
+{
+  "id": 2,
+  "type": "main"
+}
+[11/15/18, 02:23:05:909] info: BrowserViewManager: Starting initialization
+[11/15/18, 02:23:05:911] info: PersistSettingsWindowBehavior: Loading windowMetrics
+{
+  "settings": null
+}
+[11/15/18, 02:23:05:911] info: PersistSettingsWindowBehavior: Resetting to default window position
+{
+  "settings": {
+    "position": [
+      384,
+      108
+    ],
+    "size": [
+      1152,
+      864
+    ]
+  }
+}
+[11/15/18, 02:23:05:911] info: Store: SAVE_WINDOW_SETTINGS
+{
+  "position": [
+    384,
+    108
+  ],
+  "size": [
+    1152,
+    864
+  ]
+}
+[11/15/18, 02:23:05:924] info: Store: UPDATE_SETTINGS
+{
+  "PrefSSBFileDownloadPath": "/home/yonathan/Downloads"
+}
+[11/15/18, 02:23:05:925] info: DownloadListener: Downloads directory set to
+{
+  "downloadsDirectory": "/home/yonathan/Downloads"
+}
+[11/15/18, 02:23:05:925] info: Application: Setting main window ID
+{
+  "id": 2
+}
+[11/15/18, 02:23:05:926] info: App: Welcome to Slack 3.3.3 x64
+[11/15/18, 02:23:05:926] info: App load time: 1,99605249
+[11/15/18, 02:23:06:736] info: Store: BACKGROUND_CLIENTS_INITIALIZED
+[11/15/18, 02:23:06:742] info: Store: BACKGROUND_CLIENTS_INITIALIZED true
+[11/15/18, 02:23:07:255] info: Store: SET_NETWORK_STATUS online
+[11/15/18, 02:23:07:259] info: Store: MAIN_WINDOW_SHOWN
+[11/15/18, 02:23:07:277] info: createSignInWindowEpic: No teams signed in, showing sign-in window
+[11/15/18, 02:23:07:283] info: WebContentsMediator: Attaching to new webContents
+[11/15/18, 02:23:07:289] info: Store: ADD_WINDOW
+{
+  "id": 3,
+  "type": "sign-in"
+}
+[11/15/18, 02:23:07:294] info: SignInEpic: Loading URL in new window https://slack.com/signin
+[11/15/18, 02:23:10:591] info: Store: SIGN_IN_CANCELED
+[11/15/18, 02:23:10:594] info: SignInEpic: Sign-in window closed
+[11/15/18, 02:23:10:595] info: maybeQuitAppAction
+{
+  "canceledSignIn": true,
+  "hasNoTeams": true
+}
+[11/15/18, 02:23:10:595] info: SignInEpic: End of the road
+{
+  "action": "QUIT_APP"
+}
+[11/15/18, 02:23:10:595] info: Store: QUIT_APP
+[11/15/18, 02:23:10:600] info: quitApplicationEpic: found update metadata, send telemetry
+[11/15/18, 02:23:10:601] info: EpicHelpers: Flushing cookie store
+[11/15/18, 02:23:10:608] info: Store: REMOVE_WINDOW 3
+[11/15/18, 02:23:10:638] info: EpicHelpers: Flushing local-settings.json
+[11/15/18, 02:23:10:648] info: quitApplicationEpic: Closing main window
+{
+  "id": 2
+}
+[11/15/18, 02:23:10:649] info: Allowing window close because user chose to quit
+[11/15/18, 02:23:10:649] info: Notification Window Manager: Trying to close notifications window
+[11/15/18, 02:23:10:649] warn: Notification Window Manager: Could not find notifications window in state
+[11/15/18, 02:23:10:650] info: App: Disposing application
+[11/15/18, 02:23:10:651] info: Store: REMOVE_WINDOW 2
+[11/15/18, 02:23:10:652] info: quitApplicationEpic: Disposing item
+{
+  "type": "ReduxPersistStorage"
+}
+[11/15/18, 02:23:10:663] info: Store: QUIT_APP
+[11/15/18, 02:23:10:779] info: Store: QUIT_APP
+[11/19/18, 19:47:17:704] info: ╔════════════════════════════════════════════════════════════════════════════════════╗
+[11/19/18, 19:47:17:704] info: ║      Slack 3.3.3, linux 4.18.16-arch1-1-ARCH on x64 at 11/19/18, 19:47:17:702      ║
+[11/19/18, 19:47:17:704] info: ╚════════════════════════════════════════════════════════════════════════════════════╝
+[11/19/18, 19:47:18:095] info: Initializing local storage instance at path: /home/yonathan/.config/Slack/local-settings.json
+[11/19/18, 19:47:18:189] error: Locale: Tried to access systemLocale before application was ready
+[11/19/18, 19:47:18:455] info: TraceRecorder: setting up trace recorder, trace will be stored under /home/yonathan/.config/Slack/logs/recorded-trace
+[11/19/18, 19:47:18:464] info: Configuring uncaughtExceptionHandler
+[11/19/18, 19:47:18:464] info: Configuring unhandledRejectionHandler
+[11/19/18, 19:47:18:464] info: Registered with apiKey acaff8df67924f677747922423057034
+[11/19/18, 19:47:18:542] info: BrowserStore: Keychain access previously denied, don't ask again
+[11/19/18, 19:47:18:560] info: Store: persist/REHYDRATE
+{
+  "appTeams": {
+    "selectedTeamId": null,
+    "teamsByIndex": [],
+    "teamsToSignOut": []
+  },
+  "dialog": "[REDACTED]",
+  "downloads": "[REDACTED]",
+  "enterprise": {},
+  "settings": {
+    "appVersion": "3.3.3",
+    "versionName": "Dirty Computer",
+    "platform": "linux",
+    "platformVersion": {
+      "major": 4,
+      "minor": 18,
+      "build": 16
+    },
+    "isWin10": false,
+    "isBeforeWin10": false,
+    "resourcePath": "/usr/lib/slack/resources/app.asar",
+    "webappSrcPath": null,
+    "webappParams": null,
+    "isDevMode": false,
+    "devEnv": null,
+    "logFile": null,
+    "rxLogging": false,
+    "openDevToolsOnStart": false,
+    "pretendNotReallyWindows10": false,
+    "releaseChannel": "prod",
+    "autoHideMenuBar": false,
+    "defaultSigninTeam": null,
+    "isTitleBarHidden": false,
+    "hasRunApp": true,
+    "hasRunFromTray": false,
+    "reportIssueOnStartup": false,
+    "isSignedIntoSlackOrg": false,
+    "isGpuCompositionAvailable": true,
+    "runFromTray": true,
+    "launchOnStartup": false,
+    "spellcheckerLanguage": null,
+    "zoomLevel": 0,
+    "workspaceIdleTimeout": 43200000,
+    "whitelistedUrlSchemes": [
+      "http:",
+      "https:",
+      "mailto:",
+      "skype:",
+      "spotify:",
+      "live:",
+      "callto:",
+      "tel:",
+      "im:",
+      "sip:",
+      "sips:",
+      "slack:"
+    ],
+    "isTitleBarForcedByUser": false,
+    "useHwAcceleration": true,
+    "isOpenExternalShellForced": true,
+    "PrefSSBFileDownloadPath": "/home/yonathan/Downloads",
+    "notificationMethod": null,
+    "notificationPlayback": null,
+    "notificationFailover": 0,
+    "notificationFailoverEnabled": true,
+    "notificationClickThrough": false,
+    "notificationClickThroughMain": true,
+    "notificationTimeout": 6000,
+    "notificationAfterHoverTimeout": 2000,
+    "notificationMaxItems": 3,
+    "notificationZoomLevel": null,
+    "notificationStyle": null,
+    "notificationPresentationCheck": null,
+    "notifyPosition": {
+      "corner": "bottom_right",
+      "display": "same_as_app"
+    },
+    "locale": "en-US",
+    "spellCheckerVersion": "V2",
+    "os": false,
+    "release": false,
+    "desktopEnvironment": false,
+    "isAeroGlassEnabled": false,
+    "linux": {
+      "os": "Raspbian",
+      "release": ""
+    }
+  },
+  "teams": "[REDACTED]",
+  "windowFrame": {
+    "windowSettings": {
+      "position": [
+        384,
+        108
+      ],
+      "size": [
+        1152,
+        864
+      ]
+    },
+    "isFullScreen": false
+  }
+}
+[11/19/18, 19:47:18:593] info: Store: UPDATE_SETTINGS
+{
+  "isSignedIntoSlackOrg": false
+}
+[11/19/18, 19:47:18:595] info: UpdaterEpics: Updates disabled because
+{
+  "reasons": [
+    "using Linux"
+  ]
+}
+[11/19/18, 19:47:18:711] info: Store: INITIALIZE_SETTINGS
+{
+  "releaseChannel": "prod",
+  "platformVersion": {
+    "major": 4,
+    "minor": 18,
+    "build": 16
+  },
+  "isTitleBarHidden": false,
+  "isDevMode": false,
+  "appVersion": "3.3.3",
+  "versionName": "Dirty Computer",
+  "devEnv": null,
+  "resourcePath": "/usr/lib/slack/resources/app.asar",
+  "webappSrcPath": null,
+  "webappParams": null,
+  "launchOnStartup": false,
+  "openDevToolsOnStart": false,
+  "logFile": null,
+  "pretendNotReallyWindows10": false,
+  "isAeroGlassEnabled": false,
+  "isGpuCompositionAvailable": true,
+  "linux": {
+    "os": "Raspbian",
+    "release": ""
+  }
+}
+[11/19/18, 19:47:18:712] info: AutoLoginEpic: Checking for autologin.
+[11/19/18, 19:47:18:716] info: WebContentsMediator: Attaching to new webContents
+[11/19/18, 19:47:18:718] info: Store: ADD_WINDOW
+{
+  "id": 2,
+  "type": "main"
+}
+[11/19/18, 19:47:18:719] info: BrowserViewManager: Starting initialization
+[11/19/18, 19:47:18:720] info: PersistSettingsWindowBehavior: Loading windowMetrics
+{
+  "settings": {
+    "position": [
+      384,
+      108
+    ],
+    "size": [
+      1152,
+      864
+    ]
+  }
+}
+[11/19/18, 19:47:18:736] info: Application: Setting main window ID
+{
+  "id": 2
+}
+[11/19/18, 19:47:18:737] info: App: Welcome to Slack 3.3.3 x64
+[11/19/18, 19:47:18:737] info: App load time: 1,284153478
+[11/19/18, 19:47:19:478] info: Store: BACKGROUND_CLIENTS_INITIALIZED
+[11/19/18, 19:47:19:487] info: Store: BACKGROUND_CLIENTS_INITIALIZED true
+[11/19/18, 19:47:20:116] info: Store: SET_NETWORK_STATUS online
+[11/19/18, 19:47:20:117] info: Store: MAIN_WINDOW_SHOWN
+[11/19/18, 19:47:20:123] info: createSignInWindowEpic: No teams signed in, showing sign-in window
+[11/19/18, 19:47:20:125] info: WebContentsMediator: Attaching to new webContents
+[11/19/18, 19:47:20:133] info: Store: ADD_WINDOW
+{
+  "id": 3,
+  "type": "sign-in"
+}
+[11/19/18, 19:47:20:135] info: SignInEpic: Loading URL in new window https://slack.com/signin
+[11/19/18, 19:47:30:391] info: SignInEpic: Page redirect
+{
+  "newURL": "https://uva-asd.slack.com/"
+}
+[11/19/18, 19:47:30:392] info: SignInEpic: Page redirect
+{
+  "newURL": "https://uva-asd.slack.com/"
+}
+[11/19/18, 19:47:30:392] info: SignInEpic: Page redirect
+{
+  "newURL": "https://uva-asd.slack.com/"
+}
+[11/19/18, 19:48:25:891] info: Store: SIGN_IN_CANCELED
+[11/19/18, 19:48:25:894] info: SignInEpic: Sign-in window closed
+[11/19/18, 19:48:25:895] info: maybeQuitAppAction
+{
+  "canceledSignIn": true,
+  "hasNoTeams": true
+}
+[11/19/18, 19:48:25:895] info: SignInEpic: End of the road
+{
+  "action": "QUIT_APP"
+}
+[11/19/18, 19:48:25:895] info: Store: QUIT_APP
+[11/19/18, 19:48:25:899] info: quitApplicationEpic: found update metadata, send telemetry
+[11/19/18, 19:48:25:900] info: EpicHelpers: Flushing cookie store
+[11/19/18, 19:48:25:902] info: Store: REMOVE_WINDOW 3
+[11/19/18, 19:48:25:927] info: EpicHelpers: Flushing local-settings.json
+[11/19/18, 19:48:25:929] info: quitApplicationEpic: Closing main window
+{
+  "id": 2
+}
+[11/19/18, 19:48:25:930] info: Allowing window close because user chose to quit
+[11/19/18, 19:48:25:932] info: Notification Window Manager: Trying to close notifications window
+[11/19/18, 19:48:25:933] warn: Notification Window Manager: Could not find notifications window in state
+[11/19/18, 19:48:25:935] info: App: Disposing application
+[11/19/18, 19:48:25:936] info: Store: REMOVE_WINDOW 2
+[11/19/18, 19:48:25:939] info: quitApplicationEpic: Disposing item
+{
+  "type": "ReduxPersistStorage"
+}
+[11/19/18, 19:48:25:944] info: Store: QUIT_APP
+[11/19/18, 19:48:25:945] info: Allowing window close because user chose to quit
+[11/19/18, 19:48:25:970] info: Store: QUIT_APP
