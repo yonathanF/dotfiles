@@ -1,0 +1,344 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+[colors]
+background = #1c262b
+background-alt = #1c262b
+
+foreground = #bcc5d4
+bspwm-foreground = #ffffff
+foreground-alt = #1c262
+
+primary = #000000
+secondary = #ffffff
+alert = #bd2c40
+
+
+
+[bar/side]
+monitor = ${env:MONITOR:eDP-1}
+width = 90%
+height = 35
+fixed-center = true 
+
+background = #00000000
+;background = ${colors.background} 
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0 
+border-color = #fff5e2 
+
+padding-left = 0 
+padding-right = 4 
+
+module-margin-left = 1 
+module-margin-right = 1 
+
+offset-x = 100
+offset-y = 10
+
+font-0 = FiraCode:size=10;1
+;font-1 = FontAwesome:size=13;0
+font-1 = MaterialIcons:size=13;0
+;font-2 = siji:pixelsize=11
+font-2 = WeatherIcons:size=12;1
+font-3 = WunconSiji:pixelsize=10;2
+
+modules-left = bspwm spotify
+modules-center = date openweathermap-fullfeatured
+modules-right =  pulseaudio wlan battery 
+
+wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/right]
+inherit = bar/side 
+width = 100%
+modules-right = pulseaudio wlan battery  
+modules-center = date openweathermap-fullfeatured
+modules-left = spotify 
+border-right-color  = #000f0f0f
+border-bottom-color   = #000f0f0f
+border-left-color  = #000f0f0f
+border-top-color   = #000f0f0f
+
+border-left-size   = 10
+border-bottom-size = 10
+monitor = ${env:MONITOR:DP-1}
+fixed-center=true
+
+[module/todoist]
+type = custom/script
+exec = python ~/.config/polybar/todoist_polybar/todoist_poly.py
+click-left = xdg-open https://todoist.com/app
+interval = 500
+
+[bar/external]
+inherit = bar/side 
+monitor = ${env:MONITOR:DP-1}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted =  %{F#FFFFF}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.primary}
+format-mounted-underline= ${colors.secondary}
+spacing = 3
+
+[module/filesystem2]
+type = internal/fs
+interval = 25
+
+mount-0 = /home
+
+label-mounted = %{F#000000}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.primary}
+label-mounted-foreground = ${colors.primary}
+format-mounted-underline= ${colors.secondary}
+
+[module/bspwm]
+type = internal/bspwm
+
+
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.bspwm-foreground}
+label-focused-underline= ${colors.secondary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-foreground = ${colors.bspwm-foreground}
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = #9eb5a4
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/i3]
+type = internal/i3
+ws-icon-0 = 1;1:
+ws-icon-1 = 2;2:
+ws-icon-2 = 3;3:
+ws-icon-3 = 4;4:
+ws-icon-4 = 5;5:
+ws-icon-5 = 6;6:
+ws-icon-6 = 7;7:
+ws-icon-7 = 8;8:
+ws-icon-8 = 9;9:
+ws-icon-9 = 10;10:
+ws-icon-10 = 0;0:
+
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+label-icon=6
+label-mode-padding = 4
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused =  %icon%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-foreground= ${colors.primary}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon% 
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+format-underline = #ff798d
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+format-underline = #ce79ff
+label = %percentage_used%%
+
+
+[module/wlan]
+type = internal/network
+interface = wlo1 
+interval = 3.0
+
+format-connected = <label-connected>
+format-underline = #ffffff
+label-connected = 
+format-connected-underline = ${colors.background}
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = #ffffff
+label-disconnected = 
+label-disconnected-foreground = ${colors.foreground-alt}
+
+
+[module/date]
+type = internal/date
+interval = 5
+date-alt=  %m/%d/%Y
+time= %I:%M %p
+format-prefix-foreground = ${colors.primary}
+;format-underline = #0a6cf5
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume>
+;label-volume =  <ramp-volume> %percentage%%
+format-volume-underline = ${colors.primary}
+label-font = 1
+
+label-muted =  
+;label-muted-foreground = #000000
+;format-muted-underline =#ffffff
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-left = pavucontrol &
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 98
+
+time-format = %H:%M
+
+format-charging = <label-charging>
+format-charging-underline = ${colors.background}
+
+format-discharging = <label-discharging>
+format-discharging-underline = ${colors.background}
+
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%
+
+[module/openweathermap-fullfeatured]
+type = custom/script
+exec = ~/.config/polybar/openweathermap-fullfeatured.sh 
+interval = 600
+label-font = 5
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #66a5ff
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.primary}
+
+[module/spotify]
+type = custom/script
+interval = 5
+format = <label>
+exec = python ~/.config/polybar/spotify.py -f ' {artist}: {song}' -t 20 -p '[playing],[paused]'
+format-underline = #1db954
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+

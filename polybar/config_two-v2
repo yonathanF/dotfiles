@@ -1,0 +1,350 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+[colors]
+background = #ffffff
+;background = ${xrdb:color1:#222}
+;background = #000000
+background-alt = ${xrdb:color2:#222}
+
+;foreground = ${xrdb:color7:#222}
+;foreground = #000000
+foreground-alt = ${xrdb:color8:#222}
+primary = ${xrdb:color3:#222}
+;primary = #000000
+secondary = ${xrdb:color5:#222}
+;secondary = #000000
+alert = ${xrdb:color5:#222}
+
+
+;https://shanfan.github.io/material-icons-cheatsheet/
+
+[bar/side]
+monitor = DP-1
+monitor-strict = true 
+width = 250
+height = 40
+fixed-center = true 
+override-redirect = true
+offset-x = 10
+offset-y = 10
+radius = 5
+enable-ipc = true
+
+;background = #0000000
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #ffffff
+
+padding-left = 0
+padding-right = 0 
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = FiraCode:size=10;1
+;font-1 = FontAwesome:size=13;0
+font-1 = MaterialIcons:size=13;0
+;font-2 = siji:pixelsize=11
+font-2 = WeatherIcons:size=12;1
+font-3 = WunconSiji:pixelsize=10;2
+
+modules-left = bspwm 
+;modules-center = date openweathermap-fullfeatured
+;modules-right = spotify pulseaudio backlight-acpi vpn wlan battery temperature 
+;modules-right = backlight-acpi pulseaudio  wlan battery  
+# tray-position = right
+# tray-padding = 0 
+# tray-transparent = true
+# tray-background = ${colors.background}
+
+;wm-restack = i3
+wm-restack = bspwm
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/monitor2]
+inherit = bar/side
+monitor = DP-2 
+font-1 = MaterialIcons:size=7;0
+width = 205
+height = 20
+
+
+[bar/center]
+inherit = bar/side
+monitor = DP-1
+offset-x = 817
+offset-y = 10
+modules-left = date openweathermap-fullfeatured
+width = 190
+height = 40
+
+module-margin-left = 3
+padding-left = 1
+padding-right = 1 
+background = ${colors.background}
+foreground = ${colors.background-alt}
+
+[bar/left]
+inherit = bar/side 
+monitor = DP-1
+width = 510
+background = ${colors.background}
+foreground = ${colors.background-alt}
+
+
+offset-x = 1390
+offset-y = 10
+
+radius = 5
+
+padding-left = 1
+padding-right = 2 
+module-margin-left = 1
+module-margin-right = 1
+
+;backlight-acpi vpn wlan battery temperature 
+modules-left =  pulseaudio bluetooth backlight-acpi vpn battery spotify
+;modules-left = backlight-acpi pulseaudio  wlan battery  
+
+[module/todoist]
+type = custom/script
+exec = python ~/.config/polybar/todoist_polybar/todoist_poly.py
+click-left = xdg-open https://todoist.com/app
+interval = 500
+
+[bar/external]
+inherit = bar/side 
+monitor = ${env:MONITOR:DP-1}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted =  %{F#FFFFF}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.primary}
+format-mounted-underline= #ffffff
+;format-mounted-background = ${colors.primary}
+
+spacing = 3
+
+[module/filesystem2]
+inherit = module/filesystem
+;type = internal/fs
+;interval = 25
+
+mount-0 = /home
+
+; label-mounted = %{F#FFFFFF}%mountpoint%%{F-}: %percentage_used%%
+; label-unmounted = %mountpoint% not mounted
+; label-unmounted-foreground = ${colors.primary}
+format-mounted-underline= #ffffff
+
+
+[module/bspwm]
+type = internal/bspwm
+ws-icon-0 = 0;0
+ws-icon-1 = 1;1
+ws-icon-2 = 2;2
+ws-icon-3 = 3;3
+ws-icon-4 = 4;4
+ws-icon-5 = 5;5
+ws-icon-6 = 6;
+ws-icon-7 = 7;
+ws-icon-8 = 8;
+ws-icon-9 = 9;
+ws-icon-10 = 10;
+
+pin-workspaces = true
+format = <label-state> <label-mode>
+label-icon=1
+label-focused = %icon%
+label-focused-background = ${colors.background}
+label-focused-foreground = #000000
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.primary}
+label-occupied-padding = 2
+
+label-urgent = %icon%
+;label-urgent-background = ${colors.background-alt}
+label-urgent-padding = 2
+label-urgent-foreground = #00996c
+
+label-empty = 
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <ramp>
+label  =  %percentage%%
+format-underline = #ffffff
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+format-underline = #ffffff
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+format-underline = #ffffff
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlo1 
+interval = 3.0
+
+format-connected = <label-connected>
+format-underline = #ffffff
+label-connected = 
+format-connected-underline = #ffffff
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = #ffffff
+label-disconnected = 
+label-disconnected-foreground = ${colors.foreground-alt}
+
+
+
+
+[module/date]
+type = internal/date
+interval = 5
+date-alt=  %a %b %d
+time= %I:%M %p
+format-prefix-foreground = ${colors.primary}
+;format-underline = #0a6cf5
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume>
+;label-volume =  <ramp-volume> %percentage%%
+format-volume-underline = ${colors.primary}
+label-font = 1
+
+label-muted =  
+;label-muted-foreground = #000000
+;format-muted-underline =#ffffff
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-left = pavucontrol &
+
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 98
+
+time-format = %H:%M
+
+format-charging = <label-charging>
+format-charging-underline = #ffffff
+
+format-discharging = <label-discharging>
+format-discharging-underline = #ffffff
+
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%
+
+[module/openweathermap-fullfeatured]
+type = custom/script
+exec = ~/.config/polybar/openweathermap-fullfeatured.sh 
+interval = 600
+label-font = 5
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+;format-underline = #ffffff
+;format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/spotify]
+type = custom/script
+interval = 5
+;format-prefix = " "
+;format = <label>
+exec = python ~/.config/polybar/spotify.py -f ' {song} By {artist}' -t 15
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/bluetooth.sh
+tail = true
+
+[module/vpn]
+type = custom/script
+exec = ~/.config/polybar/vpn.sh
+tail = true
+format-underline=#ffffff
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
