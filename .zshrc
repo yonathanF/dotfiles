@@ -1,17 +1,20 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=~/.local/bin:~/Scripts:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/home/yonathan//.oh-my-zsh
+export EDITOR=nvim
+export TERM="xterm-256color"
+export DISABLE_AUTO_TITLE='true'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs)
-POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=minimal
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_DISABLE_RPROMPT=true
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs)
+#POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -20,7 +23,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -62,7 +65,6 @@ POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  gitfast
   git vi-mode
   python
   zsh-autosuggestions
@@ -110,23 +112,54 @@ alias cv="xclip -selection c -o"
 alias ls='ls -h --color=auto'
 alias sl=ls
 alias startPrinter='systemctl start org.cups.cupsd.service'
-alias sf='cd /home/yonathan/Documents/school/sem6/'
-alias todo='vim /home/yonathan/Documents/todos/master.todo'
+alias sf='cd /home/yonathan/Documents/school/sem8/'
 alias git=hub
 alias act='source env/bin/activate'
 alias zt=zathura
-alias t=tree
-alias v=vim
-alias note='vim /home/yonathan/Documents/notes/random.md'
+alias t=tree -d
+alias v=nvim
+alias vim=nvim
+alias ww='vim /home/yonathan/Sync/wiki/index.md'
+alias info=archey3       
+alias cd='pushd > /dev/null 2>&1'
+alias cb='popd > /dev/null 2>&1'
+alias zshc='vim ~/.zshrc'
+alias grep='ag'
+alias ack='ag'
+alias cat=bat
+alias bb='zt $((find ~/Documents/Books && find ~/Documents/Articles) | rofi -dmenu) --fork'
+alias td="nvim ~/Sync/wiki/Tasks.md"
+alias wth="curl wttr.in"
+alias bsp="vim ~/.config/bspwm/bspwmrc"
+alias sxrc="vim ~/.config/sxhkd/sxhkdrc"
+alias rm=trash-put
+
 eval $(keychain --eval --quiet id_rsa)
+
+# bindings
+bindkey -M viins 'jk' vi-cmd-mode
+
+autoload -Uz compinit
+compinit
+
+
+#source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /etc/profile.d/autojump.zsh
+source /usr/share/zsh/plugins/alias-tips/alias-tips.plugin.zsh
+#(/bin/cat ~/.cache/wal/sequences &)
 
 autoload -Uz compinit
 compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+bindkey -s '^o' 'v $(fzf)^M'
+bindkey -s '^n' 'zt $(fzf) --fork^M'
 
-synclient TapButton1=1
-xset r rate 145 90
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPS="--extended"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# opam configuration
+test -r /home/yonathan/.opam/opam-init/init.zsh && . /home/yonathan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
