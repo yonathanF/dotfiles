@@ -113,7 +113,6 @@ alias ls='ls -h --color=auto'
 alias sl=ls
 alias startPrinter='systemctl start org.cups.cupsd.service'
 alias sf='cd /home/yonathan/Documents/school/sem8/'
-alias git=hub
 alias act='source env/bin/activate'
 alias zt=zathura
 alias t=tree -d
