@@ -37,9 +37,6 @@ return packer.startup(function(use)
 	-- autoclose
 	use("windwp/nvim-autopairs")
 
-	-- coq love
-	use("whonore/Coqtail")
-
 	-- indent higlight
 	use("echasnovski/mini.nvim")
 
@@ -60,8 +57,7 @@ return packer.startup(function(use)
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	use({ "nvimdev/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting & linting
@@ -78,6 +74,13 @@ return packer.startup(function(use)
 		run = "go build",
 		-- run = 'go build -o ~/.bin/' if e.g. ~/.bin/ is in $PATH
 	})
+
+	--neorg
+	use({
+		"nvim-neorg/neorg",
+		run = ":Neorg sync-parsers",
+	})
+
 	-- treesitter configuration
 	use({
 		"nvim-treesitter/nvim-treesitter",

@@ -23,7 +23,6 @@ mason_lspconfig.setup({
 	-- list of servers for mason to install
 	ensure_installed = {
 		"texlab",
-		"sumneko_lua",
 		"jedi_language_server",
 		"marksman",
 		"jdtls",
