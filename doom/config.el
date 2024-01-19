@@ -36,7 +36,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -100,12 +100,19 @@
   :ensure t
   :custom
   (org-roam-directory (file-truename "~/Dropbox (University of Michigan)/org/roam/"))
+  (org-roam-complete-everywhere t)
+  (setq org-roam-dailies-capture-templates
+        '(("d" "default" entry "* %<%I:%M %p>: %?"
+           :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
+         ("C-c n x" . org-roam-capture)
          ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
+         ("C-c n j" . org-roam-dailies-capture-today)
+         ("C-c n t" . org-roam-dailies-goto-today)
+         :map org-mode-map
+         ("C-M-i"  . completion-at-point))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
@@ -113,16 +120,14 @@
   ;; If using org-roam-protocol
   (require 'org-roam-protocol))
 
+
 ;; font for doom
-(setq doom-symbol-font (font-spec :family "Fira Mono"))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 19 :weight 'semi-light))
+;;     doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 (setq doom-themes-treemacs-theme "doom-colors")
 
 ;; access to path
 (setenv "PATH" (shell-command-to-string "echo -n $PATH"))
-
-(setq projectile-track-known-projects-automatically nil)
-(projectile-add-known-project "~/Dropbox\ \(University\ of\ Michigan\)/Apps/Overleaf/CKAT\ with\ Tight\ Multiplication")
-(projectile-add-known-project "~/Dropbox\ \(University\ of\ Michigan\)/Apps/Overleaf/HE-Study-Doc")
 
 (setq org-preview-latex-default-process 'dvisvgm)
 
@@ -139,3 +144,6 @@
   (remove-hook 'after-change-major-mode-hook '+company-init-backends-h)
   (setq-local company-backends nil))
 (add-hook! cdlatex-mode (zz/adjust-org-company-backends))
+
+;; make pdf tools default
+(setq +latex-viewers '(pdf-tools))
