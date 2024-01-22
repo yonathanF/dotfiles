@@ -122,7 +122,7 @@
 
 
 ;; font for doom
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 19 :weight 'semi-light))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 25 :weight 'semi-light))
 ;;     doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 (setq doom-themes-treemacs-theme "doom-colors")
 
@@ -147,3 +147,4 @@
 
 ;; make pdf tools default
 (setq +latex-viewers '(pdf-tools))
+(setq xenops-math-image-scale-factor 3)
